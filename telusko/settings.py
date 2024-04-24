@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-036*@3689sq31=0p#0@^m5l1(sj+3y()!9cukj=1$*&c@pvk)_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['16.171.146.207']
 
 
 # Application definition
@@ -69,6 +69,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'telusko.wsgi.application'
+
+
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
 
 
 # Database
