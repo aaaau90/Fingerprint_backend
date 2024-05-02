@@ -21,10 +21,16 @@ class FingerprintView(View):
 
         # print("incoming_fp")
         # print(incoming_fp)
-        
+#        score = 0
         for fp in Userfp.objects.all():
             if isFingerprintMatch(incoming_fp, fp.fingerprint):
+#            if temp > score:
+#                score = temp
                 user = fp.userid
+                finse_value = user.finse
+                if finse_value > 50000:
+                    return JsonResponse({'status': 405, 'licence plate': request.POST.get('licence plate'), 'error': 'High Finse Value'})
+
                 # check for unpaid bill or other conditions here
                 # if all checks pass
                 return JsonResponse({'status': 200, 'licence plate': request.POST.get('licence plate')})

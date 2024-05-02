@@ -32,12 +32,10 @@ def isFingerprintMatch(incoming_fp, stored_fp):
     for p, q in matches:
         if p.distance < 0.75 * q.distance:
             mp.append(p)
-    
+#    return len(mp)
     if len(mp)>97:
         return True
     return False
-
-
 
 
 # users = [
@@ -63,11 +61,7 @@ fingers = [
 #     Userfp(userid=User.objects.get(id=1), fingerprint=fingers[0])
 #     Userfp(userid=User.objects.get(id=2), fingerprint=fingers[1])
 #     Userfp(userid=User.objects.get(id=2), fingerprint=fingers[2])
-#     Userfp(userid=User.objects.get(id=3), fingerprint=fingers[3])
-
-
-
-isFingerprintMatch(fingers[2], fingers[3])
+#     Userfp(userid=User.objects.get(id=3), fingeisFingerprintMatch(fingers[2], fingers[3])
 
 
 
