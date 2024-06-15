@@ -27,8 +27,12 @@ class FingerprintView(View):
 #            if temp > score:
 #                score = temp
                 user = fp.userid
-                finse_value = user.finse
-                if finse_value > 50000:
+                fines_value = user.fines
+                criminal_list = user.criminal_record
+                if criminal_list == True :
+                    return JsonResponse({'status': 406, 'licence plate': request.POST.get('licence plate'), 'error': 'criminal'})
+
+                elif fines_value > 50000:
                     return JsonResponse({'status': 405, 'licence plate': request.POST.get('licence plate'), 'error': 'High Finse Value'})
 
                 # check for unpaid bill or other conditions here
