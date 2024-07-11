@@ -30,14 +30,14 @@ class FingerprintView(View):
                 fines_value = user.fines
                 criminal_list = user.criminal_record
                 if criminal_list == True :
-                    return JsonResponse({'status': 406, 'licence plate': request.POST.get('licence plate'), 'error': 'criminal'})
+                    return JsonResponse({'status': 406, 'licence plate': request.POST.get('licence plate'), 'error': 'criminal', 'user name': user.name})
 
                 elif fines_value > 50000:
-                    return JsonResponse({'status': 405, 'licence plate': request.POST.get('licence plate'), 'error': 'High Finse Value'})
+                    return JsonResponse({'status': 405, 'licence plate': request.POST.get('licence plate'), 'error': 'High Finse Value', 'user name': user.name})
 
                 # check for unpaid bill or other conditions here
                 # if all checks pass
-                return JsonResponse({'status': 200, 'licence plate': request.POST.get('licence plate')})
+                return JsonResponse({'status': 200, 'licence plate': request.POST.get('licence plate'), 'user name': user.name})
 
         # if no match found
         return JsonResponse({'status': 404, 'error': 'No match found'})
